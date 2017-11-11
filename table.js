@@ -7,7 +7,7 @@ var path = require("path");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -15,29 +15,36 @@ app.use(bodyParser.json());
 
 // Star Wars Characters (DATA)
 // =============================================================
-var characters = [
+var names = [
   {
     routeName: "yoda",
     name: "Yoda",
     phone: "183792810",
     email: "soeroerwo@gmail.com",
-    customerID: 2000
+    customerID: "whatever"
   },
   {
     routeName: "darthmaul",
     name: "Darth Maul",
-    role: "Sith Lord",
-    age: 200,
-    forcePoints: 1200
+    phone: "0982039580",
+    email: "werwoso@gmail.com",
+    customerID: "wfh"
   },
   {
     routeName: "obiwankenobi",
     name: "Obi Wan Kenobi",
-    role: "Jedi Master",
-    age: 55,
-    forcePoints: 1350
+    phone: "9874829184",
+    email: "oiwkfj@gmail.com",
+    customerID: "pof"
   }
 ];
+
+var waitlist = [
+
+
+
+
+]
 
 // Routes
 // =============================================================
@@ -45,13 +52,19 @@ var characters = [
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
   // res.send("Welcome to the Star Wars Page!")
-  res.sendFile(path.join(__dirname, "view.html"));
+  res.sendFile(path.join(__dirname, "home.html"));
 });
 
-// Get all characters
-app.get("/all", function(req, res) {
-  res.json(characters);
+// Get all reservation names
+app.get("/table", function(req, res) {
+  res.json(names);
 });
+
+//get all wait list
+
+app.get('/waitlist', function(req, res){
+  res.json(waitlist);
+})
 
 // Search for Specific Character (or all characters) - provides JSON
 app.get("/api/:characters?", function(req, res) {
