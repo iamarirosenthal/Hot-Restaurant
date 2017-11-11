@@ -15,29 +15,36 @@ app.use(bodyParser.json());
 
 // Star Wars Characters (DATA)
 // =============================================================
-var characters = [
+var names = [
   {
     routeName: "yoda",
     name: "Yoda",
     phone: "183792810",
     email: "soeroerwo@gmail.com",
-    customerID: 2000
+    customerID: "whatever"
   },
   {
     routeName: "darthmaul",
     name: "Darth Maul",
-    role: "Sith Lord",
-    age: 200,
-    forcePoints: 1200
+    phone: "0982039580",
+    email: "werwoso@gmail.com",
+    customerID: "wfh"
   },
   {
     routeName: "obiwankenobi",
     name: "Obi Wan Kenobi",
-    role: "Jedi Master",
-    age: 55,
-    forcePoints: 1350
+    phone: "9874829184",
+    email: "oiwkfj@gmail.com",
+    customerID: "pof"
   }
 ];
+
+var waitlist = [
+
+
+
+
+]
 
 // Routes
 // =============================================================
@@ -48,10 +55,16 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "view.html"));
 });
 
-// Get all characters
-app.get("/all", function(req, res) {
-  res.json(characters);
+// Get all reservation names
+app.get("/table", function(req, res) {
+  res.json(names);
 });
+
+//get all wait list
+
+app.get('/waitlist', function(req.res){
+  res.json(waitlist);
+})
 
 // Search for Specific Character (or all characters) - provides JSON
 app.get("/api/:characters?", function(req, res) {
