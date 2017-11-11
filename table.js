@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 // Star Wars Characters (DATA)
 // =============================================================
 var names = [
+
   {
     routeName: "yoda",
     name: "Yoda",
@@ -31,6 +32,20 @@ var names = [
     customerID: "wfh"
   },
   {
+    routeName: "obiwankenobi",
+    name: "Obi Wan Kenobi",
+    phone: "9874829184",
+    email: "oiwkfj@gmail.com",
+    customerID: "pof"
+  },
+   {
+    routeName: "obiwankenobi",
+    name: "Obi Wan Kenobi",
+    phone: "9874829184",
+    email: "oiwkfj@gmail.com",
+    customerID: "pof"
+  },
+   {
     routeName: "obiwankenobi",
     name: "Obi Wan Kenobi",
     phone: "9874829184",
@@ -55,10 +70,19 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "home.html"));
 });
 
+//the reservtion page
+app.get("/reserve", function(req,res){
+
+  res.sendFile(path.join(__dirname, "reserve.html"))
+})
 // Get all reservation names
 app.get("/table", function(req, res) {
   res.json(names);
 });
+
+app.get("/api/tables", function(req, res){
+  res.json(names);
+})
 
 //get all wait list
 
@@ -67,24 +91,24 @@ app.get('/waitlist', function(req, res){
 })
 
 // Search for Specific Character (or all characters) - provides JSON
-app.get("/api/:characters?", function(req, res) {
-  var chosen = req.params.characters;
+// app.get("/api/:characters?", function(req, res) {
+//   var chosen = req.params.characters;
 
-  if (chosen) {
-    console.log(chosen);
+//   if (chosen) {
+//     console.log(chosen);
 
-    for (var i = 0; i < characters.length; i++) {
-      if (chosen === characters[i].routeName) {
-        return res.json(characters[i]);
-      }
-    }
-    return res.json(false);
-  }
-  return res.json(characters);
-});
+//     for (var i = 0; i < characters.length; i++) {
+//       if (chosen === characters[i].routeName) {
+//         return res.json(characters[i]);
+//       }
+//     }
+//     return res.json(false);
+//   }
+//   return res.json(characters);
+// });
 
 // Create New Characters - takes in JSON input
-app.post("/api/new", function(req, res) {
+app.post("/api/tables", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body-parser middleware
   var newcharacter = req.body;
@@ -92,10 +116,19 @@ app.post("/api/new", function(req, res) {
   console.log(newcharacter);
 
   // We then add the json the user sent to the character array
-  characters.push(newcharacter);
 
-  // We then display the JSON to the users
-  res.json(newcharacter);
+  if (names.length < 5){
+    names.push(newcharacter);
+
+    // We then display the JSON to the users
+    res.json(names);
+
+    }else{
+
+      waitlist.push(newcharacter);
+      res.json();
+      
+    }
 });
 
 // Starts the server to begin listening
