@@ -1,0 +1,92 @@
+assword for 'https://jamesjkelly@github.com': 
+To https://github.com/iamarirosenthal/Hot-Restaurant
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/iamarirosenthal/Hot-Restaurant'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+jkmacman@jkmacman-E205SA:~/Desktop/11/Hot-Restaurant$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+jkmacman@jkmacman-E205SA:~/Desktop/11/Hot-Restaurant$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+jkmacman@jkmacman-E205SA:~/Desktop/11/Hot-Restaurant$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+jkmacman@jkmacman-E205SA:~/Desktop/11/Hot-Restaurant$ git push
+warning: push.default is unset; its implicit value has changed in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the traditional behavior, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+When push.default is set to 'matching', git will push local branches
+to the remote branches that already exist with the same name.
+
+Since Git 2.0, Git defaults to the more conservative 'simple'
+behavior, which only pushes the current branch to the corresponding
+remote branch that 'git pull' uses to update the current branch.
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Username for 'https://github.com': jamesjkelly
+Password for 'https://jamesjkelly@github.com': 
+To https://github.com/iamarirosenthal/Hot-Restaurant
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/iamarirosenthal/Hot-Restaurant'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+jkmacman@jkmacman-E205SA:~/Desktop/11/Hot-Restaurant$ git remote -v
+origin	https://github.com/iamarirosenthal/Hot-Restaurant (fetch)
+origin	https://github.com/iamarirosenthal/Hot-Restaurant (push)
+jkmacman@jkmacman-E205SA:~/Desktop/11/Hot-Restaurant$ git remote set-url origin git@github.com:iamarirosenthal/Hot-Restaurant.git
+jkmacman@jkmacman-E205SA:~/Desktop/11/Hot-Restaurant$ git push origin master
+To git@github.com:iamarirosenthal/Hot-Restaurant.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'git@github.com:iamarirosenthal/Hot-Restaurant.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+jkmacman@jkmacman-E205SA:~/Desktop/11/Hot-Restaurant$ git pull
+remote: Counting objects: 7, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 7 (delta 4), reused 7 (delta 4), pack-reused 0
+Unpacking objects: 100% (7/7), done.
+From github.com:iamarirosenthal/Hot-Restaurant
+   196e1a6..c6d15a6  master     -> origin/master
+   ddc94d7..7b6d168  WendiCui   -> origin/WendiCui
+Merge made by the 'recursive' strategy.
+ home.html    |  1 +
+ reserve.html | 70 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ table.html   | 48 ++++++++++++++++++++++++++++++++++++++++-
+ 3 files changed, 117 insertions(+), 2 deletions(-)
+jkmacman@jkmacman-E205SA:~/Desktop/11/Hot-Restaurant$ git push origin master
+Counting objects: 5, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 1.39 KiB | 0 bytes/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To git@github.com:iamarirosenthal/Hot-Restaurant.git
+   c6d15a6..be9b8a4  master -> master
+jkmacman@jkmacman-E205SA:~/Desktop/11/Hot-Restaurant$ 
