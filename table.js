@@ -52,7 +52,7 @@ var waitlist = [
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
   // res.send("Welcome to the Star Wars Page!")
-  res.sendFile(path.join(__dirname, "view.html"));
+  res.sendFile(path.join(__dirname, "home.html"));
 });
 
 // Get all reservation names
@@ -62,7 +62,7 @@ app.get("/table", function(req, res) {
 
 //get all wait list
 
-app.get('/waitlist', function(req.res){
+app.get('/waitlist', function(req, res){
   res.json(waitlist);
 })
 
